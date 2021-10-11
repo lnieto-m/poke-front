@@ -21,13 +21,30 @@ function App() {
   const [currentLink, setCurrentLink] = useState('');
   const [loading, setLoading] = useState(false);
   const [isDark, setIsDark] = useState(true);
+  const [serverResponse, setResponse] = useState('');
 
-  const handleKeyDown = (event: React.KeyboardEvent) => {
+  const handleKeyDown = async (event: React.KeyboardEvent) => {
     if (event.key === 'Enter') {
       // Send request and wait
       // Then trigger the popup
-      setLoading(true)
-      setTimeout(openToolTip, 2000);
+      
+      // Tu com les 2 lignes la et tu decom le reste apres
+      // setLoading(true)
+      // setTimeout(openToolTip, 2000);
+      console.log(currentLink);
+      const requestOptions = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        },
+        body: JSON.stringify({ link: currentLink })
+      }
+      const response = await fetch("http://localhost:8080", requestOptions);
+      const data = await response.json();
+      console.log(data);
+      setResponse(data);
     }
   }
 
@@ -44,7 +61,7 @@ function App() {
         nested
         ref={ref}>
         <div> <img className="pikachu" src={currentLink} /> </div>
-        <p> This image most likely belongs to your face with a 0 percent confidence.</p>
+        <p> {serverResponse} </p>
       </Popup>
 
       <Toggle
