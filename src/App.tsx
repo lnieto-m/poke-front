@@ -42,7 +42,7 @@ function App() {
       }
 
       // TODO: Change l'url ici pour tes propres request
-      const response = await fetch("http://pokedex-preproc.herokuapp.com/", requestOptions);
+      const response = await fetch("https://pokedex-preproc.herokuapp.com/", requestOptions);
       const data = await response.json();
       console.log(data);
       setResponse(data?.response);
