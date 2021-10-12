@@ -74,7 +74,7 @@ function App() {
       />
 
       <div>
-        <img className="pikachu" src={'/pikachu.png'} />
+        <img className="pikachu" src={'/poke-front/pikachu.png'} />
       </div>
 
       {/* text input goes here */}
