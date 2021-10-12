@@ -18,7 +18,7 @@ function App() {
     setLoading(false);
   };
 
-  const [currentLink, setCurrentLink] = useState('');
+  const [currentLink, setCurrentLink] = useState('https://www.pokepedia.fr/images/thumb/f/fa/Latios-RS.png/250px-Latios-RS.png');
   const [loading, setLoading] = useState(false);
   const [isDark, setIsDark] = useState(true);
   const [serverResponse, setResponse] = useState('');
@@ -29,8 +29,7 @@ function App() {
       // Then trigger the popup
       
       // Tu com les 2 lignes la et tu decom le reste apres
-      // setLoading(true)
-      // setTimeout(openToolTip, 2000);
+      setLoading(true)
       console.log(currentLink);
       const requestOptions = {
         method: 'POST',
@@ -41,10 +40,13 @@ function App() {
         },
         body: JSON.stringify({ link: currentLink })
       }
+
+      // TODO: Change l'url ici pour tes propres request
       const response = await fetch("http://localhost:8080", requestOptions);
       const data = await response.json();
       console.log(data);
-      setResponse(data);
+      setResponse(data?.response);
+      openToolTip();
     }
   }
 
