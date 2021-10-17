@@ -9,7 +9,11 @@ import { PopupActions } from 'reactjs-popup/dist/types';
 import Toggle from 'react-toggle';
 import "react-toggle/style.css"
 import { FaSun, FaMoon } from 'react-icons/fa';
-
+import { useMediaQuery } from 'react-responsive';
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { Linkedin, Github, Sun } from 'react-bootstrap-icons';
+ 
 function App() {
 
   const ref = useRef<PopupActions>(null);
@@ -18,37 +22,61 @@ function App() {
     setLoading(false);
   };
 
-  const [currentLink, setCurrentLink] = useState('https://www.pokepedia.fr/images/thumb/f/fa/Latios-RS.png/250px-Latios-RS.png');
+
+  // https://www.pokepedia.fr/images/thumb/f/fa/Latios-RS.png/250px-Latios-RS.png
+  const [currentLink, setCurrentLink] = useState('');
   const [loading, setLoading] = useState(false);
   const [isDark, setIsDark] = useState(true);
   const [serverResponse, setResponse] = useState('');
 
+  useEffect(() => {
+    if (isDark) {
+      document.body.classList.add('dark');
+    } else {
+      document.body.classList.remove('dark');
+    }
+  }, [isDark]); 
+
   const handleKeyDown = async (event: React.KeyboardEvent) => {
     if (event.key === 'Enter') {
-      // Send request and wait
-      // Then trigger the popup
-      
-      // Tu com les 2 lignes la et tu decom le reste apres
-      setLoading(true)
-      console.log(currentLink);
-      const requestOptions = {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Access-Control-Allow-Origin': '*'
-        },
-        body: JSON.stringify({ link: currentLink })
-      }
-
-      // TODO: Change l'url ici pour tes propres request
-      const response = await fetch("https://pokedex-preproc.herokuapp.com/", requestOptions);
-      const data = await response.json();
-      console.log(data);
-      setResponse(data?.response);
-      openToolTip();
+      requestServer();
     }
   }
+
+  const onClick = (e: React.MouseEventHandler<HTMLButtonElement>) => {
+    requestServer();
+  }
+
+  const requestServer = async () => {
+    if (currentLink == '') {
+      return;
+    }
+    setLoading(true)
+    const requestOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      },
+      body: JSON.stringify({ link: currentLink })
+    }
+
+    // TODO: Change l'url ici pour tes propres request
+    const response = await fetch("https://pokedex-preproc.herokuapp.com/", requestOptions);
+    const data = await response.json();
+    console.log(data);
+    setResponse(data?.response);
+    openToolTip();
+  }
+
+  const systemPreferDark = useMediaQuery(
+    {
+      query: "(prefers-color-scheme: dark)"
+    },
+    undefined,
+    (isSystemDark: boolean) => setIsDark(isSystemDark)
+  );
 
   return (
     <div className="App">
@@ -61,34 +89,47 @@ function App() {
       <Popup
         modal
         nested
+        className="response-popup"
         ref={ref}>
-        <div> <img className="pikachu" src={currentLink} /> </div>
-        <p> {serverResponse} </p>
+        <div id="response-popup-content">
+          <img className="pikachu" src={currentLink} />
+          <p style={{ margin: '1em' }}> {serverResponse} </p>
+        </div>
       </Popup>
+      <div className="content">
+        <div className="header">
+          <div>
+            <img className="pikachu" src={'/poke-front/pikachu.png'} />
+          </div>
+          <div className="toggle-position">
+            <Toggle
+              className="toggle-style"
+              checked={isDark}
+              onChange={({ target }) => setIsDark(target.checked)}
+              icons={{ checked: <FaMoon />, unchecked: <Sun color="white" />}}
+            />
+          </div>
+        </div>
 
-      <Toggle
-        className="dark-mode-toggle"
-        checked={isDark}
-        onChange={({ target }) => setIsDark(target.checked)}
-        icons={{ checked: <FaMoon />, unchecked: <FaSun />}}
-      />
-
-      <div>
-        <img className="pikachu" src={'/poke-front/pikachu.png'} />
+        {/* text input goes here */}
+        
+        <div style={{ margin: "0.5em"}}>
+          <input className="Text-input" type="text" value={currentLink} placeholder="Your link here..." onChange={(e) => setCurrentLink(e.target.value)}
+          onKeyDown={(e) => {
+            handleKeyDown(e)
+          }}/>
+          <Button variant="outline-primary" disabled={loading} onClick={(e) => { if (!loading) { requestServer(); }}}> {loading ? 'Loading...' : 'Go' } </Button>{' '}
+        </div>
       </div>
 
-      {/* text input goes here */}
-      
-      <div>
-        <input className="Text-input" type="text" value={currentLink} onChange={(e) => setCurrentLink(e.target.value)}
-        onKeyDown={(e) => {
-          handleKeyDown(e)
-        }}/>
-      </div>
-
-      <div className="dropZoneWrapper">
-        <MyDropZone />
-      </div>
+      <footer className="App-footer">
+        <div className="links">
+          <a href="#"><Linkedin /></a>
+          <a href="#"><Github /></a>
+        </div>
+        <p style={{ paddingTop: '0.6em' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+        <p className="copyright">©2021 - Morbi tincidunt magna leo</p>
+      </footer>
     </div>
   );
 }
