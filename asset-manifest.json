@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/poke-front/static/css/main.2482de39.chunk.css",
-    "main.js": "/poke-front/static/js/main.41a14bdd.chunk.js",
-    "main.js.map": "/poke-front/static/js/main.41a14bdd.chunk.js.map",
+    "main.css": "/poke-front/static/css/main.97ec8163.chunk.css",
+    "main.js": "/poke-front/static/js/main.c9904d75.chunk.js",
+    "main.js.map": "/poke-front/static/js/main.c9904d75.chunk.js.map",
     "runtime-main.js": "/poke-front/static/js/runtime-main.685f95f2.js",
     "runtime-main.js.map": "/poke-front/static/js/runtime-main.685f95f2.js.map",
     "static/css/2.2f04296f.chunk.css": "/poke-front/static/css/2.2f04296f.chunk.css",
@@ -12,14 +12,14 @@
     "static/js/3.f77cf450.chunk.js.map": "/poke-front/static/js/3.f77cf450.chunk.js.map",
     "index.html": "/poke-front/index.html",
     "static/css/2.2f04296f.chunk.css.map": "/poke-front/static/css/2.2f04296f.chunk.css.map",
-    "static/css/main.2482de39.chunk.css.map": "/poke-front/static/css/main.2482de39.chunk.css.map",
+    "static/css/main.97ec8163.chunk.css.map": "/poke-front/static/css/main.97ec8163.chunk.css.map",
     "static/js/2.5927eca0.chunk.js.LICENSE.txt": "/poke-front/static/js/2.5927eca0.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.685f95f2.js",
     "static/css/2.2f04296f.chunk.css",
     "static/js/2.5927eca0.chunk.js",
-    "static/css/main.2482de39.chunk.css",
-    "static/js/main.41a14bdd.chunk.js"
+    "static/css/main.97ec8163.chunk.css",
+    "static/js/main.c9904d75.chunk.js"
   ]
 }
