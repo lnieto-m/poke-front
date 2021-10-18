@@ -119,21 +119,21 @@ function App() {
             <p>
               Copier l'URL de l'image d'un Pokémon de la 1re génération (Pokémon n°1 - Bulbizarre à 151 - Mew) dans le champ de recherche et cliquer sur Go.<br />
               L'image doit être "propre", c'est-à-dire qu'elle ne doit pas contenir trop de bruit visuel et que le Pokémon doit être seul et dans sa couleur d'origine.<br />
-              Ensuite, un serveur en Python va récupérer l'image partagée, la redimensionner et la transformer en tableau. Le réseau de neurones va identifier les caractéristiques propres à ce Pokémon et les comparer à celles apprises pendant son entraînement pour donner en retour le nom d'un Pokémon et la probabilité que ce soit lui.<br />
+              Ensuite, un serveur en Python va récupérer l'image partagée, la redimensionner et la transformer en tableau. Le réseau de neurones va identifier les caractéristiques propres à ce Pokémon et les comparer à celles apprises pendant son entraînement pour donner en retour le nom d'un Pokémon et la probabilité que ce soit lui en pourcentage.<br />
             </p>
           </article>
           <article>
             <h2>Mise en garde :</h2>
             <p>
-              - Le set d'image a été construit à partir de plusieurs sets différents, qui ont été nettoyés pour récupérer les images les plus fidèles.<br />
+              - Le set d'images a été construit à partir de plusieurs sets différents, qui ont été nettoyés pour récupérer les images les plus fidèles.<br />
               - Il s'agit d'un projet de démo, c'est pourquoi il ne contient que la 1re génération de Pokémon.<br />
-              - La probabilité de reconnaître un Pokémon dépends du nombre d'images le représentant dans le set d'entraînement (pkmn plus populaire = plus d'image d'entraînement).<br />
+              - La probabilité de reconnaître un Pokémon dépends du nombre d'images différentes le représentant dans le set d'entraînement.<br />
             </p>
           </article>
           <article>
             <h2>Ce qui fait tourner le Pokédex :</h2>
             <p>
-            - Python, TensorFlow et Keras (Librairie), Docker (Containers : 1 pour le réseau de neurones, 1 pour le serveur), GitHub, Heroku (hébergement)
+            - Python, TensorFlow et Keras (Librairies), Docker (Containers : 1 pour le réseau de neurones, 1 pour le serveur), GitHub, Heroku (hébergement).
             </p>
           </article>
         </div>
