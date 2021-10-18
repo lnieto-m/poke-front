@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/poke-front/static/css/main.97ec8163.chunk.css",
-    "main.js": "/poke-front/static/js/main.c9904d75.chunk.js",
-    "main.js.map": "/poke-front/static/js/main.c9904d75.chunk.js.map",
+    "main.js": "/poke-front/static/js/main.c20192fd.chunk.js",
+    "main.js.map": "/poke-front/static/js/main.c20192fd.chunk.js.map",
     "runtime-main.js": "/poke-front/static/js/runtime-main.685f95f2.js",
     "runtime-main.js.map": "/poke-front/static/js/runtime-main.685f95f2.js.map",
     "static/css/2.2f04296f.chunk.css": "/poke-front/static/css/2.2f04296f.chunk.css",
@@ -20,6 +20,6 @@
     "static/css/2.2f04296f.chunk.css",
     "static/js/2.5927eca0.chunk.js",
     "static/css/main.97ec8163.chunk.css",
-    "static/js/main.c9904d75.chunk.js"
+    "static/js/main.c20192fd.chunk.js"
   ]
 }
