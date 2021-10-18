@@ -86,14 +86,15 @@ body.dark {
 
 .tldr {
   display: block;
-  max-width: 740px;
+  max-width: 1340px;
   width: 100%;
   color: var(--color-foreground);
   margin-left: auto;
   margin-right: auto;
   margin-top: 2em;
-  margin-bottom: 2.5em;
-  padding: 1em;
+  margin-bottom: 0em;
+  padding: 2em;
+  padding-bottom: 1.5em;
   text-align: left;
 }
 
@@ -102,7 +103,7 @@ body.dark {
 }
 
 article {
-  max-width: 740px;
+  max-width: 1340px;
 }
 
 @keyframes App-logo-spin {

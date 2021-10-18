@@ -119,8 +119,7 @@ function App() {
             <p>
               Copier l'URL de l'image d'un Pokémon de la 1re génération (Pokémon n°1 - Bulbizarre à 151 - Mew) dans le champ de recherche et cliquer sur Go.<br />
               L'image doit être "propre", c'est-à-dire qu'elle ne doit pas contenir trop de bruit visuel et que le Pokémon doit être seul et dans sa couleur d'origine.<br />
-              <br />
-              Ensuite, un serveur en Python va récupérer l'image partagée, la redimensionner et la transformer en tableau. Le réseau de neurones, qui a été entraîné avec environ 12 000 images, va réaliser une analyse couche par couche. Il va identifier les caractéristiques propres à ce Pokémon et les comparer à celles apprises pendant son entraînement pour donner en retour le nom d'un Pokémon et la probabilité que ce soit lui.<br />
+              Ensuite, un serveur en Python va récupérer l'image partagée, la redimensionner et la transformer en tableau. Le réseau de neurones va identifier les caractéristiques propres à ce Pokémon et les comparer à celles apprises pendant son entraînement pour donner en retour le nom d'un Pokémon et la probabilité que ce soit lui.<br />
             </p>
           </article>
           <article>
