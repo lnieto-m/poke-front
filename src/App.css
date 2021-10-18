@@ -1,6 +1,7 @@
 body {
   --color-background: #FAFAFA;
   --color-foreground: #1F2023;
+  --color-foreground-hover: #42444b;
 
   min-height: 100%;
 }
@@ -8,6 +9,7 @@ body {
 body.dark {
   --color-background: #1F2023;
   --color-foreground: #EFEFEF;
+  --color-foreground-hover: #bbbbbb;
 }
 
 .content {
@@ -82,6 +84,27 @@ body.dark {
   margin-bottom: 0;
 }
 
+.tldr {
+  display: block;
+  max-width: 740px;
+  width: 100%;
+  color: var(--color-foreground);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2em;
+  margin-bottom: 2.5em;
+  padding: 1em;
+  text-align: left;
+}
+
+.tldr > article > h2 {
+  font-size: 1.5rem;
+}
+
+article {
+  max-width: 740px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -152,6 +175,16 @@ body.dark {
     opacity: 1;
     box-shadow: 0 0 500px rgba(241, 241, 241, 0);
   }
+}
+
+.linkMaker {
+  text-decoration: none;
+  color: var(--color-foreground);
+  transition: 0.5s;
+}
+
+.linkMaker:hover {
+  color: var(--color-foreground-hover);
 }
 
 .popup-content {
